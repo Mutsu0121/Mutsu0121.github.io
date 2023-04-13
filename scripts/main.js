@@ -25,6 +25,10 @@ if (!localStorage.getItem('name')) {
 
 function setUserName() {
   const myName = prompt('あなたの名前を入力してください。');
+   if (!myName) {
+     setUserName();
+  } else {
   localStorage.setItem('name', myName);
   myHeading.textContent = `Mozilla はかっこいいよ、${myName}`;
+    }
 }
