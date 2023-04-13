@@ -8,3 +8,23 @@ myImage.onclick = () => {
     myImage.setAttribute('src','images/firefox-icon.png');
   }
 }
+
+let myButton = document.querySelector('button');
+let myHeading = document.querySelector('h1');
+
+myButton.onclick = () => {
+  setUserName();
+}
+
+if (!localStorage.getItem('name')) {
+  setUserName();
+} else {
+  const storedName = localStorage.getItem('name');
+  myHeading.textContent = `Mozilla はかっこいいよ、${storedName}`;
+}
+
+function setUserName() {
+  const myName = prompt('あなたの名前を入力してください。');
+  localStorage.setItem('name', myName);
+  myHeading.textContent = `Mozilla はかっこいいよ、${myName}`;
+}
